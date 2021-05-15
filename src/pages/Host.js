@@ -1,11 +1,7 @@
-import React from 'react';
+import React from "react";
 
-function Host(props) {
-    return (
-        <div>
-            
-        </div>
-    );
+function Host() {
+  return <div>Host</div>;
 }
 
 export default Host;

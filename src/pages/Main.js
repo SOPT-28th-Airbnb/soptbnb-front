@@ -1,11 +1,8 @@
-import React from 'react';
+import React from "react";
 
 function Main(props) {
-    return (
-        <div>
-            
-        </div>
-    );
+  return <div>Main</div>;
 }
 
 export default Main;
+
