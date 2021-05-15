@@ -1,5 +1,5 @@
 import React from "react";
-import TitleWrap from "../../assets/styles/TitleWrap";
+import TitleWrap from "../../lib/styles/TitleWrap";
 
 const NearTitle = () => {
   return (
