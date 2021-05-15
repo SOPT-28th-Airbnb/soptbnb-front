@@ -1,6 +1,9 @@
 import NearTitle from "./components/main/NearTitle";
+import Host from "./pages/Host";
 
 import styled from "styled-components";
+
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const MainWrap = styled.div`
   * {
@@ -10,9 +13,18 @@ const MainWrap = styled.div`
 
 function App() {
   return (
-    <MainWrap>
-      <NearTitle />
-    </MainWrap>
+    <Router>
+      <Switch>
+        <Route path="/" exact>
+          <MainWrap>
+            <NearTitle />
+          </MainWrap>
+        </Route>
+        <Route path="/host">
+          <Host />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
