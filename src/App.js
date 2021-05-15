@@ -1,5 +1,19 @@
+import NearTitle from "./components/main/NearTitle";
+
+import styled from "styled-components";
+
+const MainWrap = styled.div`
+  * {
+    margin: 1rem 2rem;
+  }
+`;
+
 function App() {
-  return <div className="App"></div>;
+  return (
+    <MainWrap>
+      <NearTitle />
+    </MainWrap>
+  );
 }
 
 export default App;
