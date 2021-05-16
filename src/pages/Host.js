@@ -1,7 +1,7 @@
 import React from "react";
 
 function Host() {
-  return <div>Host</div>;
+  return <div>Host: package-lock.json</div>;
 }
 
 export default Host;
