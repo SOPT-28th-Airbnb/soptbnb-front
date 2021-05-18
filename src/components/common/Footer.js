@@ -4,9 +4,10 @@ import Dot from "../../assets/img/footer_dot_01.svg";
 
 const FooterWrap = styled.div`
   .footer {
+    width: 100%;
     background-color: #f7f7f7;
     &__main {
-      padding-top: 35px;
+      padding: 35px;
       display: flex;
       justify-content: space-between;
       &--section {
