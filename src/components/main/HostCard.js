@@ -8,7 +8,6 @@ import HostCardImg from "../../assets/img/HostCardImg.svg";
 
 const HostCardWrap = styled.div`
   .card__host {
-    margin: 2rem 0;
     position: relative;
     width: 100%;
 
@@ -24,31 +23,31 @@ const HostCardWrap = styled.div`
       justify-content: center;
       position: absolute;
       top: 0;
-      left: 2rem;
+      left: 5.2rem;
       color: white;
       padding: 1rem;
     }
 
     &--title {
-      font-size: 2.5rem;
+      font-size: 3rem;
       font-weight: bold;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.7rem;
     }
 
     &--subtitle {
-      margin-bottom: 1rem;
-      font-size: 1rem;
+      margin-bottom: 2.7rem;
+      font-size: 1.2rem;
     }
 
     &--btn {
       border: none;
-      padding: 1rem 0;
+      padding: 0.813rem 1.815rem;
       border-radius: 5px;
       cursor: pointer;
-      font-size: 0.7rem;
+      font-size: 1rem;
       color: black;
       background: white;
-      width: 50%;
+      width: 10.2rem;
     }
   }
 `;

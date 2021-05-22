@@ -2,8 +2,7 @@ import styled from "styled-components";
 
 const SubtitleWrap = styled.div`
   .subtitle {
-    margin: 0;
-    font-size: 0.95rem;
+    font-size: 1.8rem;
   }
 `;
 

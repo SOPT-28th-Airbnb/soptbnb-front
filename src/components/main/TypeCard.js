@@ -10,7 +10,7 @@ const TypeCardWrap = styled.div`
     /* margin-right: 1rem; */
 
     &--desc {
-      font-size: 0.8rem;
+      font-size: 1.2rem;
     }
   }
 `;
