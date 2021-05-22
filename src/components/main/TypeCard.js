@@ -8,6 +8,10 @@ const TypeCardWrap = styled.div`
     display: flex;
     flex-direction: column;
     /* margin-right: 1rem; */
+
+    &--desc {
+      font-size: 1.2rem;
+    }
   }
 `;
 
