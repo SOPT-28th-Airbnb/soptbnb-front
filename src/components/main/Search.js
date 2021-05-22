@@ -5,7 +5,7 @@ import searchBtn from "../../assets/img/searchBtn.svg";
 const DetailedSearchWrap = styled.div`
   z-index: 2;
   width: 53.1rem;
-  height: 4.1rem;
+  height: 41px;
   border-radius: 3.35rem;
   background-color: #ffffff;
 `;
@@ -14,16 +14,17 @@ const EachSearchWrap = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 0px 0.5rem 0px 2rem;
-  height: 4.1rem;
+  height: 41px;
   .search__part {
     &--container {
       display: flex;
       flex-direction: column;
-      /* justify-content: center; */
+      justify-content: center;
     }
     &--title {
       font-weight: 500;
       font-size: 0.8rem;
+      margin: 0;
       /* line-height: 0.9rem; */
       /* padding: 0 0 0.2rem 0; */
     }
@@ -34,8 +35,8 @@ const EachSearchWrap = styled.div`
       /* line-height: 1.2rem; */
     }
     &--searchBtn {
-      width: 3rem;
-      height: 3rem;
+      width: 30px;
+      height: 30px;
       display: flex;
       align-self: center;
     }

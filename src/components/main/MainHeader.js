@@ -17,6 +17,7 @@ const MainHeaderWrap = styled.div`
     display: block;
     text-align: center;
     &--Covid19 {
+      font-size: 8px;
       line-height: 3.6rem;
       font-weight: 500;
       letter-spacing: -0.05rem;
