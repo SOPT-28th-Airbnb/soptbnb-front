@@ -14,7 +14,7 @@ const MainWrap = styled.div`
     margin: 1rem 2rem;
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 120rem;
 
     &__near {
       width: 100%;

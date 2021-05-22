@@ -13,6 +13,11 @@ const WanderCardWrap = styled.div`
       margin: 0.5rem 0;
     }
 
+    &--type {
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+
     &--desc {
       font-size: 0.7rem;
     }
