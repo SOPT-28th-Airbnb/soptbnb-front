@@ -46,23 +46,23 @@ function Main() {
     {
       id: 1,
       name: "서울",
-      dist: 20,
-    },
+      dist: 20
+    }
   ]);
 
   const [type, setType] = useState([
     {
       id: 1,
-      desc: "집 전체",
-    },
+      desc: "집 전체"
+    }
   ]);
 
   const [exp, setExp] = useState([
     {
       id: 1,
       type: "체험",
-      desc: "어디에서든 세계 각지의 매력을 만나실 수 있습니다.",
-    },
+      desc: "어디에서든 세계 각지의 매력을 만나실 수 있습니다."
+    }
   ]);
 
   return (
