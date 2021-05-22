@@ -35,7 +35,7 @@ const Header=styled.div`
       line-height: 2.2rem;
     }
     &__middle{
-      font-weight: 500;
+      font-weight: 600;
       font-size: 4.1rem;
       line-height: 130%;
       font-style: normal;
