@@ -13,8 +13,17 @@ const NearCardWrap = styled.div`
       flex-direction: column;
     }
 
+    &--img {
+      margin-bottom: 0.3rem;
+    }
+
+    &--name {
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+    }
+
     &--dist {
-      font-size: 0.7rem;
+      font-size: 1rem;
       color: darkgray;
     }
   }

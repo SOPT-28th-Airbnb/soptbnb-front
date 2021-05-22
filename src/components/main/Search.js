@@ -4,16 +4,16 @@ import searchBtn from "../../assets/img/searchBtn.svg";
 
 const DetailedSearchWrap = styled.div`
   z-index: 2;
-  width: 531px;
+  width: 53.1rem;
   height: 41px;
-  border-radius: 33.5px;
+  border-radius: 3.35rem;
   background-color: #ffffff;
 `;
 
 const EachSearchWrap = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 0px 5px 0px 20px;
+  padding: 0px 0.5rem 0px 2rem;
   height: 41px;
   .search__part {
     &--container {
@@ -22,15 +22,17 @@ const EachSearchWrap = styled.div`
       justify-content: center;
     }
     &--title {
-      font-weight: 600;
+      font-weight: 500;
       font-size: 0.8rem;
-      line-height: 9px;
-      margin: 0 0 2px 0;
+      margin: 0;
+      /* line-height: 0.9rem; */
+      /* padding: 0 0 0.2rem 0; */
     }
     &--input {
       margin: 0;
-      font-weight: 500;
-      line-height: 12px;
+      font-size: 1rem;
+      font-weight: 300;
+      /* line-height: 1.2rem; */
     }
     &--searchBtn {
       width: 30px;
@@ -39,8 +41,8 @@ const EachSearchWrap = styled.div`
       align-self: center;
     }
     &--line {
-      width: 1px;
-      height: 20px;
+      width: 0.1rem;
+      height: 2rem;
       background-color: #dddddd;
       display: flex;
       align-self: center;
