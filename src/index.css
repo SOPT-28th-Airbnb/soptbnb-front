@@ -1,21 +1,23 @@
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
-html {
+
+html{
   display: flex;
   justify-content: center;
   font-size: 10px;
 }
-@media screen and (min-width: 1366px) {
-  html {
+
+@media screen and (min-width:1366px){
+  html{
     font-size: 10px;
   }
 }
-@media screen and (min-width: 1024px) and (max-width: 1365px) {
-  html {
+@media screen and (min-width:1024px) and (max-width: 1365px){
+  html{
     font-size: 8px;
   }
 }
-@media screen and (min-width: 512px) and (max-width: 1024px) {
-  html {
+@media screen and (min-width:512px) and (max-width: 1024px){
+  html{
     font-size: 6px;
   }
 }
