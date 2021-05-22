@@ -12,6 +12,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const MainWrap = styled.div`
+  width: 100%;
+
   .main {
     margin: 0 10rem;
     display: flex;
