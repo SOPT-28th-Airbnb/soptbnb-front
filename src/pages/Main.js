@@ -12,11 +12,13 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const MainWrap = styled.div`
+  width: 100%;
+
   .main {
     margin: 1rem 2rem;
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 120rem;
 
     &__near {
       width: 100%;

@@ -7,18 +7,19 @@ import HomeBannerImg from "../../assets/img/home_banner.jpeg";
 import Ellipse from "../../assets/img/Ellipse.svg";
 import userProfile from "../../assets/img/userProfile.svg";
 import hamburgerIcon from "../../assets/img/hamburgerIcon.svg";
+import { withRouter } from "react-router-dom";
 
 const MainHeaderWrap = styled.div`
   .main__top {
     width: 100%;
-    height: 36px;
+    height: 3.6rem;
     background: #222222;
     display: block;
     text-align: center;
     &--Covid19 {
-      line-height: 36px;
+      line-height: 3.6rem;
       font-weight: 500;
-      letter-spacing: -0.05em;
+      letter-spacing: -0.05rem;
       text-decoration-line: underline;
       color: #a3a3a3;
       cursor: pointer;
@@ -30,17 +31,17 @@ const MainHeaderWrap = styled.div`
     background-color: #000000;
     /* height: 515px; */
     &__top {
-      height: 50px;
+      height: 5rem;
       display: flex;
       align-items: center;
-      padding: 0px 100px;
+      padding: 0px 10rem;
     }
     &__left {
       flex: 1;
       display: flex;
       align-items: center;
       &--logo {
-        margin-right: 5.39px;
+        margin-right: 0.539rem;
       }
     }
     &__middle {
@@ -55,8 +56,8 @@ const MainHeaderWrap = styled.div`
         color: white;
         font-weight: 500;
         font-size: 1.1rem;
-        line-height: 13px;
-        margin: 0px 10px;
+        line-height: 1.3rem;
+        margin: 0 1rem;
         cursor: pointer;
       }
     }
@@ -64,30 +65,32 @@ const MainHeaderWrap = styled.div`
       flex: 1;
       display: flex;
       justify-content: flex-end;
+      align-items: center;
       &--hostBtn {
         color: white;
-        margin-right: 14px;
+        margin-right: 1.4rem;
+        cursor: pointer;
       }
       &--icon {
         //아이콘이 이상하게 생김..
-        margin-right: 14px;
+        margin-right: 1.4rem;
       }
       &--user {
-        width: 49px;
-        height: 27px;
+        width: 4.9rem;
+        height: 2.7rem;
         background: #ffffff;
-        border-radius: 21px;
+        border-radius: 2.1rem;
 
         display: flex;
         justify-content: center;
         align-items: center;
         &--menu {
-          width: 8.91px;
-          margin-right: 7.18px;
+          width: 0.891rem;
+          margin-right: 0.718rem;
         }
         &--icon {
-          width: 20px;
-          height: 20px;
+          width: 2rem;
+          height: 2rem;
         }
       }
     }
@@ -101,25 +104,29 @@ const MainHeaderWrap = styled.div`
       }
       &--image {
         position: relative;
-        top: -20.5px;
+        top: -2.05rem;
         z-index: 1;
 
-        width: 90%;
-        height: 372px;
+        width: 106rem;
+        height: 37.2rem;
         object-fit: cover;
-        padding: 0px 0px 40px 0px;
+        padding: 0 0 3rem 0;
       }
     }
   }
 `;
 
-const MainHeader = () => {
+const MainHeader = ({ history }) => {
   const [btnIndex, setBtnIndex] = useState(0);
   const accommoBtnListener = () => {
     setBtnIndex(0);
   };
   const activBtnListener = () => {
     setBtnIndex(1);
+  };
+
+  const HostBtnHandler = () => {
+    history.push("/host");
   };
 
   return (
@@ -148,7 +155,9 @@ const MainHeader = () => {
             <button className="header__middle--menu">온라인 체험</button>
           </div>
           <div className="header__right">
-            <p className="header__right--hostBtn">호스트 되기</p>
+            <p className="header__right--hostBtn" onClick={HostBtnHandler}>
+              호스트 되기
+            </p>
             <img className="header__right--icon" src={Ellipse}></img>
             <div className="header__right--user">
               <img className="header__right--user--menu" src={hamburgerIcon} />
@@ -165,4 +174,4 @@ const MainHeader = () => {
   );
 };
 
-export default MainHeader;
+export default withRouter(MainHeader);
