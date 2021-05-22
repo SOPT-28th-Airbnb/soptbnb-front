@@ -3,7 +3,7 @@ import styled from "styled-components";
 const SubtitleWrap = styled.div`
   .subtitle {
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 0.95rem;
   }
 `;
 

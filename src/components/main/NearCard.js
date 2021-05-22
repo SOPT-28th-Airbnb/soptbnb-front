@@ -13,6 +13,10 @@ const NearCardWrap = styled.div`
       flex-direction: column;
     }
 
+    &--name {
+      font-size: 0.8rem;
+    }
+
     &--dist {
       font-size: 0.7rem;
       color: darkgray;
