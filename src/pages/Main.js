@@ -7,8 +7,9 @@ import HostCard from "../components/main/HostCard";
 import WanderCard from "../components/main/WanderCard";
 import Footer from "../components/common/Footer";
 import MainHeader from "../components/main/MainHeader";
+import { getNearCard, getResidCard, getExpCard } from "../lib/api";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 const MainWrap = styled.div`
@@ -22,8 +23,10 @@ const MainWrap = styled.div`
 
     &__near {
       width: 100%;
-      display: flex;
+      display: grid;
       flex-wrap: nowrap;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 1rem;
     }
 
     &__type {
@@ -65,6 +68,20 @@ function Main() {
     },
   ]);
 
+  useEffect(() => {
+    (async () => {
+      const near = await getNearCard();
+      console.log(near);
+      setNear(near);
+
+      const resid = await getResidCard();
+      setType(resid);
+
+      const exp = await getExpCard();
+      setExp(exp);
+    })();
+  }, []);
+
   return (
     <MainWrap>
       <MainHeader />
@@ -73,20 +90,27 @@ function Main() {
         <NearTitle />
         <div style={{ height: "2rem" }} />
         <div className="main__near">
-          {near.map((place) => {
-            return (
-              <NearCard key={place.id} name={place.name} dist={place.dist} />
-            );
-          })}
+          {near &&
+            near.map((place) => {
+              return (
+                <NearCard
+                  key={place.id}
+                  name={place.name}
+                  dist={place.time}
+                  img={place.img}
+                />
+              );
+            })}
         </div>
         <div style={{ height: "4rem" }} />
 
         <TypeTitle />
         <div style={{ height: "1rem" }} />
         <div className="main__type">
-          {type.map((type) => {
-            return <TypeCard key={type.id} desc={type.desc} />;
-          })}
+          {type &&
+            type.map((type) => {
+              return <TypeCard key={type.id} desc={type.desc} img={type.img} />;
+            })}
         </div>
         <div style={{ height: "4.5rem" }} />
 
@@ -96,9 +120,17 @@ function Main() {
         <WanderTitle />
         <div style={{ height: "1.3rem" }} />
         <div className="main__wander">
-          {exp.map((exp) => {
-            return <WanderCard key={exp.id} type={exp.type} desc={exp.desc} />;
-          })}
+          {exp &&
+            exp.map((exp) => {
+              return (
+                <WanderCard
+                  key={exp.id}
+                  img={exp.img}
+                  type={exp.type}
+                  desc={exp.desc}
+                />
+              );
+            })}
         </div>
       </div>
       <div style={{ height: "4.5rem" }} />
