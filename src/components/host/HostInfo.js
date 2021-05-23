@@ -15,8 +15,8 @@ const HostInfoWrap = styled.div`
     &__main {
       width: 42.2rem;
       font-weight: 600;
-      font-size: 31px;
-      line-height: 45px;
+      font-size: 3.1rem;
+      line-height: 4.5rem;
       letter-spacing: -0.01em;
 
       color: #373737;
@@ -26,7 +26,7 @@ const HostInfoWrap = styled.div`
       margin: 0.9rem 0 13.5rem 0;
       font-style: normal;
       font-weight: 400;
-      font-size: 12px;
+      font-size: 1.2rem;
       line-height: 165%;
       letter-spacing: -0.03em;
       color: #747474;
