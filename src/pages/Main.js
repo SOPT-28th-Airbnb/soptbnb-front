@@ -23,8 +23,10 @@ const MainWrap = styled.div`
 
     &__near {
       width: 100%;
-      display: flex;
+      display: grid;
       flex-wrap: nowrap;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 1rem;
     }
 
     &__type {
@@ -69,13 +71,14 @@ function Main() {
   useEffect(() => {
     (async () => {
       const near = await getNearCard();
+      console.log(near);
       setNear(near);
 
       const resid = await getResidCard();
-      setNear(resid);
+      setType(resid);
 
       const exp = await getExpCard();
-      setNear(exp);
+      setExp(exp);
     })();
   }, []);
 
@@ -90,7 +93,12 @@ function Main() {
           {near &&
             near.map((place) => {
               return (
-                <NearCard key={place.id} name={place.name} dist={place.dist} />
+                <NearCard
+                  key={place.id}
+                  name={place.name}
+                  dist={place.time}
+                  img={place.img}
+                />
               );
             })}
         </div>
@@ -101,7 +109,7 @@ function Main() {
         <div className="main__type">
           {type &&
             type.map((type) => {
-              return <TypeCard key={type.id} desc={type.desc} />;
+              return <TypeCard key={type.id} desc={type.desc} img={type.img} />;
             })}
         </div>
         <div style={{ height: "4.5rem" }} />
@@ -115,7 +123,12 @@ function Main() {
           {exp &&
             exp.map((exp) => {
               return (
-                <WanderCard key={exp.id} type={exp.type} desc={exp.desc} />
+                <WanderCard
+                  key={exp.id}
+                  img={exp.img}
+                  type={exp.type}
+                  desc={exp.desc}
+                />
               );
             })}
         </div>

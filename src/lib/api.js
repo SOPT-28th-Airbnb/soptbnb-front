@@ -39,8 +39,9 @@ const instance = axios.create({
 export const getNearCard = async () => {
   try {
     const data = await instance.get("/api");
+    console.log(data);
     console.log("[SUCCESS] GET near card data");
-    return data.data.spot;
+    return data.data.data.spot;
   } catch (e) {
     console.log("[FAIL] GET card data");
     return null;
@@ -50,8 +51,8 @@ export const getNearCard = async () => {
 export const getResidCard = async () => {
   try {
     const data = await instance.get("/api");
-    console.log("[SUCCESS] GET resedence card data");
-    return data.data.residence;
+    console.log("[SUCCESS] GET residence card data");
+    return data.data.data.residence;
   } catch (e) {
     console.log("[FAIL] GET card data");
     return null;
@@ -62,7 +63,7 @@ export const getExpCard = async () => {
   try {
     const data = await instance.get("/api");
     console.log("[SUCCESS] GET exp card data");
-    return data.data.exp;
+    return data.data.data.exp;
   } catch (e) {
     console.log("[FAIL] GET card data");
     return null;
