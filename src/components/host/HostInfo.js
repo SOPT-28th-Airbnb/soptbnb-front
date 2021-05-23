@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import icon from "../../assets/img/btn_checkbox_unselected.png";
+import selectedIcon from "../../assets/img/btn_checkbox_selected.svg";
+import CheckModal from "../host/CheckModal";
 
 const HostInfoWrap = styled.div`
   width: 120rem;
@@ -29,20 +32,20 @@ const HostInfoWrap = styled.div`
   }
   .info {
     margin: 5.7rem 26.6rem 0 0;
+    width: 31.4rem;
     &__input {
-      width: 31.4rem;
+      width: 100%;
       border: 0.1rem solid #dddddd;
       border-radius: 0.5rem;
       &--email {
-        margin: 0;
+        margin: 0 0 0 0.9rem;
         padding: 0;
-        width: 31.4rem;
+        width: 30.4rem;
         height: 4rem;
         background: #ffffff;
         border: none;
         border-radius: 0.5rem;
         ::placeholder {
-          padding: 0.9rem;
           font-style: normal;
           font-weight: 500;
           font-size: 12px;
@@ -50,18 +53,20 @@ const HostInfoWrap = styled.div`
           letter-spacing: -0.03em;
           color: #747474;
         }
+        :focus {
+          outline: none;
+        }
       }
       &--num {
+        padding: 0 0 0 0.9rem;
         margin: 0;
-        padding: 0;
-        width: 31.4rem;
+        width: 30.4rem;
         height: 4rem;
         background: #ffffff;
         border: none;
         border-top: 0.1rem solid #dddddd;
         border-radius: 0 0 0.5rem 0.5rem;
         ::placeholder {
-          padding: 0.9rem;
           font-style: normal;
           font-weight: 500;
           font-size: 12px;
@@ -69,16 +74,68 @@ const HostInfoWrap = styled.div`
           letter-spacing: -0.03em;
           color: #747474;
         }
+        :focus {
+          outline: none;
+        }
       }
     }
     &__checkbox {
+      display: flex;
+      flex-direction: row;
+      padding-top: 1.6rem;
+      &--text {
+        width: 28.7rem;
+        margin-left: 1.2rem;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 0.9rem;
+        line-height: 165%;
+        letter-spacing: -0.09em;
+        color: #747474;
+      }
+    }
+    &__btn {
+      width: 8.8rem;
+      height: 3.6rem;
+      margin-top: 1.8rem;
+      background: #222222;
+      border-radius: 0.6rem;
+      border: none;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 1.2rem;
+      line-height: 165%;
+      color: #ffffff;
     }
   }
 `;
+const Checkbox = styled.button`
+  width: 1.6rem;
+  height: 1.6rem;
+  background: url(${(props) => props.bg});
+  /* background-image: url(${selectedIcon}); */
+  border: none;
+`;
 
 const HostInfo = () => {
+  const [checkState, setCheckState] = useState(false);
+  const [dataState, setDataState] = useState({
+    name: "",
+    email: "",
+    num: ""
+  });
+  const [modalState, setModalState] = useState(true);
+  const postData = () => {
+    if (!checkState) {
+      alert("이메일 구독 취소에 관련한 내용을 숙지하였음을 확인해주세요.");
+    } else {
+      const data = dataState;
+      console.log(data);
+    }
+  };
   return (
     <HostInfoWrap>
+      {/* {modalState && <CheckModal setModalState={setModalState} />} */}
       <div className="text">
         <div className="text__main">
           전문성을 갖춘 호스트와 대화하며 더 자세한 정보를 얻으세요.
@@ -90,20 +147,54 @@ const HostInfo = () => {
       </div>
       <div className="info">
         <div className="info__input">
-          <input className="info__input--email" placeholder="이메일 주소" />
+          <input
+            className="info__input--email"
+            placeholder="이름"
+            onChange={(e) =>
+              setDataState({
+                ...dataState,
+                name: e.target.value
+              })
+            }
+          />
+          <input
+            className="info__input--num"
+            placeholder="이메일 주소"
+            onChange={(e) =>
+              setDataState({
+                ...dataState,
+                email: e.target.value
+              })
+            }
+          />
           <input
             className="info__input--num"
             placeholder="전화번호(선택 사항)"
+            onChange={(e) =>
+              setDataState({
+                ...dataState,
+                num: e.target.value
+              })
+            }
           />
         </div>
         <div className="info__checkbox">
-          <div className="info__checkbox--icon"></div>
+          <Checkbox
+            bg={checkState ? selectedIcon : icon}
+            active={selectedIcon}
+            checkState={checkState}
+            onClick={() => {
+              checkState ? setCheckState(false) : setCheckState(true);
+            }}
+          />
           <div className="info__checkbox--text">
             호스팅에 대해 에어비앤비가 비정기적으로 보내는 데이터와 정보를 받고
             싶습니다. 언제든 이메일 구독을 취소할 수 있음을 알고 있습니다.
           </div>
         </div>
-        <button className="info__btn">이메일 신청</button>
+        <button className="info__btn" onClick={postData}>
+          이메일 신청
+        </button>
       </div>
     </HostInfoWrap>
   );
