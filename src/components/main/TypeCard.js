@@ -22,8 +22,6 @@ const TypeCardWrap = styled.div`
 `;
 
 const TypeCard = ({ desc, img }) => {
-  console.log(desc);
-  console.log(img);
   return (
     <TypeCardWrap>
       <div className="card__type">

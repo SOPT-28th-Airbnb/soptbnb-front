@@ -37,9 +37,6 @@ const NearCardWrap = styled.div`
 `;
 
 const NearCard = ({ name, dist, img }) => {
-  console.log(name);
-  console.log(dist);
-  console.log(img);
   return (
     <NearCardWrap>
       <div className="card__near">

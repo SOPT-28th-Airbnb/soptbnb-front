@@ -47,7 +47,8 @@ const HostCardWrap = styled.div`
       font-size: 1rem;
       color: black;
       background: white;
-      width: 10.2rem;
+      width: 95px;
+      white-space: nowrap;
     }
   }
 `;
