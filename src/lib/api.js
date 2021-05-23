@@ -31,13 +31,38 @@ import axios from "axios";
 }
 */
 
+const instance = axios.create({
+  baseURL: "http://18.116.201.53:5000",
+  timeout: 1000,
+});
+
 export const getNearCard = async () => {
   try {
-    // localhost 뒤의 번호 및 주소는 서버로부터 데이터를 받아오는 주소를 나타내므로
-    // 앞에서 json-server에서 지정한 번호와 세부주소를 작성하시면 됩니다
-    const rawData = await axios.get("http://localhost:3000/near");
-    console.log("[SUCCESS] GET card data");
-    return rawData.data.data; // rawData의 console을 찍어보시면 data 아래의 data가 저희가 원하는 데이터입니다
+    const data = await instance.get("/api");
+    console.log("[SUCCESS] GET near card data");
+    return data.data.spot;
+  } catch (e) {
+    console.log("[FAIL] GET card data");
+    return null;
+  }
+};
+
+export const getResidCard = async () => {
+  try {
+    const data = await instance.get("/api");
+    console.log("[SUCCESS] GET resedence card data");
+    return data.data.residence;
+  } catch (e) {
+    console.log("[FAIL] GET card data");
+    return null;
+  }
+};
+
+export const getExpCard = async () => {
+  try {
+    const data = await instance.get("/api");
+    console.log("[SUCCESS] GET exp card data");
+    return data.data.exp;
   } catch (e) {
     console.log("[FAIL] GET card data");
     return null;

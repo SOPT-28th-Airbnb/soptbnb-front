@@ -15,11 +15,11 @@ const FooterWrap = styled.div`
       }
       &--title {
         font-size: 0.8rem;
-        font-weight: 800;
+        font-weight: 600;
         line-height: 118%;
       }
       &--part {
-        font-weight: 500;
+        font-weight: 400;
         line-height: 150%;
       }
     }

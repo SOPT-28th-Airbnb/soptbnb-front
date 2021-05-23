@@ -39,6 +39,7 @@ const EachSearchWrap = styled.div`
       height: 30px;
       display: flex;
       align-self: center;
+      cursor: pointer;
     }
     &--line {
       width: 0.1rem;
