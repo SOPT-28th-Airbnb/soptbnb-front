@@ -7,6 +7,8 @@ import CheckModal from "../host/CheckModal";
 const HostInfoWrap = styled.div`
   width: 120rem;
   display: flex;
+  background: #f7f7f7;
+  border-bottom: 1px solid #dddddd;
 
   .text {
     margin: 5.5rem 13.9rem 0 5.7rem;
@@ -38,8 +40,8 @@ const HostInfoWrap = styled.div`
       border: 0.1rem solid #dddddd;
       border-radius: 0.5rem;
       &--email {
-        margin: 0 0 0 0.9rem;
-        padding: 0;
+        padding: 0 0 0 0.9rem;
+        margin: 0;
         width: 30.4rem;
         height: 4rem;
         background: #ffffff;
@@ -113,29 +115,33 @@ const Checkbox = styled.button`
   width: 1.6rem;
   height: 1.6rem;
   background: url(${(props) => props.bg});
-  /* background-image: url(${selectedIcon}); */
   border: none;
 `;
 
 const HostInfo = () => {
   const [checkState, setCheckState] = useState(false);
   const [dataState, setDataState] = useState({
-    name: "",
     email: "",
-    num: ""
+    name: "",
+    number: ""
   });
-  const [modalState, setModalState] = useState(true);
+  const [modalState, setModalState] = useState(false);
   const postData = () => {
     if (!checkState) {
       alert("이메일 구독 취소에 관련한 내용을 숙지하였음을 확인해주세요.");
     } else {
-      const data = dataState;
-      console.log(data);
+      if (dataState.name == "" || dataState.email == "") {
+        alert("❗ 필수 사항을 모두 입력하셔야 합니다 ❗");
+      } else {
+        setModalState(true);
+      }
     }
   };
   return (
     <HostInfoWrap>
-      {/* {modalState && <CheckModal setModalState={setModalState} />} */}
+      {modalState && (
+        <CheckModal setModalState={setModalState} dataState={dataState} />
+      )}
       <div className="text">
         <div className="text__main">
           전문성을 갖춘 호스트와 대화하며 더 자세한 정보를 얻으세요.
@@ -173,7 +179,7 @@ const HostInfo = () => {
             onChange={(e) =>
               setDataState({
                 ...dataState,
-                num: e.target.value
+                number: e.target.value
               })
             }
           />

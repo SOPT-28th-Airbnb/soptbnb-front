@@ -1,39 +1,8 @@
 import axios from "axios";
 
-/*
-// json structure
-{
-	"data": {
-		"spot": [
-			{
-				id: 0,
-				img: "https://~~~",
-				name: "서울",
-				time:"20"
-			},
-		],
-		"residence": [
-			{
-				id: 0,
-				img: "https://~~~",
-				desc: "집 전체",
-			},
-		],
-		"exp": [
-			{
-				id: 0,
-				img: "https://~~~",
-				type: "체험",
-				desc:"어디에서든 세계 각자의 매력을 만나실 수 있습니다."
-			},
-		]
-	}
-}
-*/
-
 const instance = axios.create({
   baseURL: "http://18.116.201.53:5000",
-  timeout: 1000,
+  timeout: 1000
 });
 
 export const getNearCard = async () => {
@@ -66,6 +35,18 @@ export const getExpCard = async () => {
     return data.data.data.exp;
   } catch (e) {
     console.log("[FAIL] GET card data");
+    return null;
+  }
+};
+export const postHostInfo = async (hostdata) => {
+  try {
+    console.log("data", hostdata);
+    const data = await instance.post("/api/host", hostdata);
+    console.log("[SUCCESS] POST host data");
+    return data;
+  } catch (e) {
+    console.log("[FAIL] POST host data", e);
+    alert("유효한 정보를 입력해주세요.");
     return null;
   }
 };
