@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 // place img 받기
 
-const TypeCardWrap = styled.div`
-  .card__type {
+const ResideCardWrap = styled.div`
+  .card__reside {
     display: flex;
     flex-direction: column;
     margin-right: 1rem;
@@ -21,15 +21,15 @@ const TypeCardWrap = styled.div`
   }
 `;
 
-const TypeCard = ({ desc, img }) => {
+const ResideCard = ({ desc, img }) => {
   return (
-    <TypeCardWrap>
-      <div className="card__type">
-        <img src={img} alt="" className="card__type--img" />
-        <div className="card__type--desc">{desc}</div>
+    <ResideCardWrap>
+      <div className="card__reside">
+        <img src={img} alt="" className="card__reside--img" />
+        <div className="card__reside--desc">{desc}</div>
       </div>
-    </TypeCardWrap>
+    </ResideCardWrap>
   );
 };
 
-export default TypeCard;
+export default ResideCard;

@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 // place img 받기
 
-const WanderCardWrap = styled.div`
-  .card__wander {
+const ExpCardWrap = styled.div`
+  .card__exp {
     display: flex;
     flex-direction: column;
     margin-right: 1.2rem;
@@ -33,18 +33,18 @@ const WanderCardWrap = styled.div`
   }
 `;
 
-const WanderCard = ({ type, desc, img }) => {
+const ExpCard = ({ type, desc, img }) => {
   return (
-    <WanderCardWrap>
-      <div className="card__wander">
-        <img src={img} alt="" className="card__wander--img" />
-        <div className="card__wander--detail">
-          <div className="card__wander--type">{type}</div>
-          <div className="card__wander--desc">{desc}</div>
+    <ExpCardWrap>
+      <div className="card__exp">
+        <img src={img} alt="" className="card__exp--img" />
+        <div className="card__exp--detail">
+          <div className="card__exp--type">{type}</div>
+          <div className="card__exp--desc">{desc}</div>
         </div>
       </div>
-    </WanderCardWrap>
+    </ExpCardWrap>
   );
 };
 
-export default WanderCard;
+export default ExpCard;
