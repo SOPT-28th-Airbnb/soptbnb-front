@@ -27,19 +27,6 @@ const MainWrap = styled.div`
       grid-template-columns: repeat(4, 1fr);
       grid-gap: 1rem;
     }
-
-    &__reside {
-      width: 100%;
-      display: flex;
-      flex-wrap: nowrap;
-    }
-
-    &__exp {
-      margin-top: 1rem;
-      width: 100%;
-      display: flex;
-      flex-wrap: nowrap;
-    }
   }
 `;
 
@@ -52,64 +39,51 @@ function Main() {
     (async () => {
       const near = await getNearCard();
       setNear(near);
-      console.log(near);
-
       const reside = await getResideCard();
       setReside(reside);
-      console.log(reside);
-
       const exp = await getExpCard();
       setExp(exp);
-      console.log(exp);
     })();
   }, []);
 
   return (
-    reside &&
-    exp && (
-      <MainWrap>
-        <MainHeader />
-        <div className="main">
-          <div style={{ height: "4rem" }} />
-          <NearTitle />
-          <div style={{ height: "2rem" }} />
-          <div className="main__near">
-            {near &&
-              near.map((place) => {
-                return (
-                  <NearCard
-                    key={place._id}
-                    name={place.name}
-                    dist={place.time}
-                    img={place.img}
-                  />
-                );
-              })}
-          </div>
-          <div style={{ height: "4rem" }} />
-
-          <ResideTitle />
-          <div style={{ height: "1rem" }} />
-          <div className="main__reside">
-            <ImageSlider type="reside" list={reside} />
-          </div>
-          <div style={{ height: "4.5rem" }} />
-
-          <HostCard />
-          <div style={{ height: "3rem" }} />
-
-          <ExpTitle />
-          <div style={{ height: "1.3rem" }} />
-
-          <div className="main__exp">
-            <ImageSlider type="exp" list={exp} />
-          </div>
+    <MainWrap>
+      <MainHeader />
+      <div className="main">
+        <div style={{ height: "4rem" }} />
+        <NearTitle />
+        <div style={{ height: "2rem" }} />
+        <div className="main__near">
+          {near &&
+            near.map((place) => {
+              return (
+                <NearCard
+                  key={place._id}
+                  name={place.name}
+                  dist={place.time}
+                  img={place.img}
+                />
+              );
+            })}
         </div>
+        <div style={{ height: "4rem" }} />
+
+        <ResideTitle />
+        <div style={{ height: "1rem" }} />
+        {reside.length !== 0 && <ImageSlider type="reside" list={reside} />}
         <div style={{ height: "4.5rem" }} />
 
-        <Footer />
-      </MainWrap>
-    )
+        <HostCard />
+        <div style={{ height: "3rem" }} />
+
+        <ExpTitle />
+        <div style={{ height: "1.3rem" }} />
+        {exp.length !== 0 && <ImageSlider type="exp" list={exp} />}
+      </div>
+      <div style={{ height: "4.5rem" }} />
+
+      <Footer />
+    </MainWrap>
   );
 }
 

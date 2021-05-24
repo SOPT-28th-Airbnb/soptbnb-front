@@ -37,8 +37,6 @@ const NearCardWrap = styled.div`
 `;
 
 const NearCard = ({ name, dist, img }) => {
-  const handleBtnClick = () => {};
-
   return (
     <NearCardWrap>
       <div className="card__near">
