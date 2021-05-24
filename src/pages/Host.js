@@ -6,6 +6,7 @@ import logoImg from '../assets/img/ic_soptbnb.svg'
 import reviewCardImg from '../assets/img/img_medium.jpeg'
 import HeaderImg2 from '../assets/img/img_main_02.webp';
 import Footer from '../components/common/Footer';
+import HostInfo from '../components/host/HostInfo';
 
 const Header=styled.div`
   width: 120rem;
@@ -234,6 +235,7 @@ function Host() {
         </div>
         <div className='startBtn'>시작하기</div>
       </Header>
+      <HostInfo/>
       <Footer/>
     </>
   );
