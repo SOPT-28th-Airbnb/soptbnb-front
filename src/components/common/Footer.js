@@ -98,15 +98,15 @@ function Footer(props) {
         <div className="footer__line"></div>
         <div className="footer__bottom">
           <div className="footer__bottom--company">ⓒ 2021 Airbnb,Inc </div>
-          <img className="footer__bottom--part" src={Dot}></img>
+          <img className="footer__bottom--part" src={Dot} alt=""></img>
           <div className="footer__bottom--part">개인정보 처리방침</div>
-          <img className="footer__bottom--part" src={Dot}></img>
+          <img className="footer__bottom--part" src={Dot} alt=""></img>
           <div className="footer__bottom--part">이용약관</div>
-          <img className="footer__bottom--part" src={Dot}></img>
+          <img className="footer__bottom--part" src={Dot} alt=""></img>
           <div className="footer__bottom--part">사이트맵</div>
-          <img className="footer__bottom--part" src={Dot}></img>
+          <img className="footer__bottom--part" src={Dot} alt=""></img>
           <div className="footer__bottom--part">한국의 변경된 환불 정책</div>
-          <img className="footer__bottom--part" src={Dot}></img>
+          <img className="footer__bottom--part" src={Dot} alt=""></img>
           <div className="footer__bottom--part">회사 세부정보</div>
         </div>
       </div>

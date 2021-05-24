@@ -7,7 +7,7 @@ import HomeBannerImg from "../../assets/img/home_banner.jpeg";
 import Ellipse from "../../assets/img/Ellipse.svg";
 import userProfile from "../../assets/img/userProfile.svg";
 import hamburgerIcon from "../../assets/img/hamburgerIcon.svg";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 
 const MainHeaderWrap = styled.div`
   .main__top {
@@ -133,15 +133,15 @@ const MainHeader = ({ history }) => {
   return (
     <MainHeaderWrap>
       <div className="main__top">
-        <a className="main__top--Covid19">
+        <Link to="/">
           에어비앤비의 코로나19대응 방안에 대한 최신 정보를 확인하세요.
-        </a>
+        </Link>
       </div>
       <div className="header">
         <div className="header__top">
           <div className="header__left">
-            <img className="header__left--logo" src={Logo} />
-            <img className="header__left--logo" src={LetterLogo} />
+            <img className="header__left--logo" src={Logo} alt="" />
+            <img className="header__left--logo" src={LetterLogo} alt="" />
           </div>
           <div className="header__middle">
             <button
@@ -159,16 +159,28 @@ const MainHeader = ({ history }) => {
             <p className="header__right--hostBtn" onClick={HostBtnHandler}>
               호스트 되기
             </p>
-            <img className="header__right--icon" src={Ellipse}></img>
+            <img className="header__right--icon" src={Ellipse} alt="" />
             <div className="header__right--user">
-              <img className="header__right--user--menu" src={hamburgerIcon} />
-              <img className="header__right--user--icon" src={userProfile} />
+              <img
+                className="header__right--user--menu"
+                src={hamburgerIcon}
+                alt=""
+              />
+              <img
+                className="header__right--user--icon"
+                src={userProfile}
+                alt=""
+              />
             </div>
           </div>
         </div>
         <div className="header__bottom">
-          <Search className="header__bottom--Search" index={btnIndex}></Search>
-          <img className="header__bottom--image" src={HomeBannerImg}></img>
+          <Search
+            className="header__bottom--Search"
+            index={btnIndex}
+            alt=""
+          ></Search>
+          <img className="header__bottom--image" src={HomeBannerImg} alt="" />
         </div>
       </div>
     </MainHeaderWrap>
