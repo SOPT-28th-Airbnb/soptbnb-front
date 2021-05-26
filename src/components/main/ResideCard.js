@@ -4,10 +4,12 @@ import styled from "styled-components";
 // place img 받기
 
 const ResideCardWrap = styled.div`
+  display: flex;
+
   .card__reside {
     display: flex;
     flex-direction: column;
-    margin-right: 1rem;
+
     &--img {
       width: 24.2rem;
       height: 24.2rem;
@@ -21,13 +23,14 @@ const ResideCardWrap = styled.div`
   }
 `;
 
-const ResideCard = ({ desc, img }) => {
+const ResideCard = ({ desc, img, active }) => {
   return (
     <ResideCardWrap>
       <div className="card__reside">
         <img src={img} alt="" className="card__reside--img" />
         <div className="card__reside--desc">{desc}</div>
       </div>
+      <div style={{ marginRight: "1rem" }} />
     </ResideCardWrap>
   );
 };

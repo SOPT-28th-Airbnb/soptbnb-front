@@ -28,6 +28,23 @@ const MainWrap = styled.div`
       grid-gap: 1rem;
     }
   }
+
+  @media screen and (min-width: 500px) and (max-width: 1024px) {
+    width: 100%;
+
+    .main {
+      margin: 4rem;
+      width: 100%;
+
+      &__near {
+        width: 100%;
+        display: grid;
+        flex-wrap: nowrap;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 1rem;
+      }
+    }
+  }
 `;
 
 function Main() {
