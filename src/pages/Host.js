@@ -29,9 +29,8 @@ const Header = styled.div`
     position: relative;
     top: 9.7rem;
     left: 5.6rem;
-    /* font-family: "Noto Sans"; */
-
     color: #ffffff;
+
     &__top {
       font-size: 1.4rem;
       line-height: 2.2rem;
@@ -64,6 +63,29 @@ const Header = styled.div`
     font-weight: 300;
     font-size: 1.2rem;
     color: white;
+  }
+  @media screen and (max-width: 500px) {
+    width: 50rem;
+    height: 64.8rem;
+    .title {
+      display: none;
+    }
+    .text {
+      position: relative;
+      top: 28.8rem;
+      left: 2.5rem;
+      &__middle {
+        width: 45.6rem;
+      }
+      &__bottom {
+        width: 41.6rem;
+      }
+    }
+    .startBtn {
+      position: absolute;
+      top: 48.8rem;
+      left: 2.4rem;
+    }
   }
 `;
 const TextfieldWrap = styled.div`
@@ -118,6 +140,29 @@ const TextfieldWrap = styled.div`
     display: flex;
     flex-direction: row;
   }
+  @media screen and (max-width: 500px) {
+    display: flex;
+    justify-content: start;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100vw;
+    .mainTitle {
+      margin-left: 2.4rem;
+      margin-top: 3.1rem;
+    }
+    .text {
+      padding-top: 4rem;
+      padding-left: 2.4rem;
+      width: 23rem;
+    }
+    .supportTitle {
+      width: 100vw;
+    }
+    .supportInfo {
+      display: flex;
+      flex-direction: column;
+    }
+  }
 `;
 const ReviewCard = styled.div`
   display: flex;
@@ -152,6 +197,37 @@ const ReviewCard = styled.div`
       color: #747474;
     }
   }
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+    margin-top: 5rem;
+    margin-left: 2.4rem;
+    .reviewImg {
+      width: 45.1rem;
+      height: 16.3rem;
+      border-radius: 1rem 1rem 0rem 0rem;
+      object-fit: cover;
+    }
+    .reviewText {
+      width: 45.1rem;
+      background: #f7f7f7;
+      border-radius: 0rem 0rem 1rem 1rem;
+      &__title {
+        width: 40.7rem;
+        margin: 2rem 2.2rem 1.2rem 2.2rem;
+        font-weight: 600;
+        font-size: 1.7rem;
+        line-height: 2.3rem;
+      }
+      &__subTitle {
+        font-weight: 300;
+        font-size: 1.2rem;
+        line-height: 2rem;
+        margin: 0 0 1.7rem 2.2rem;
+
+        color: #747474;
+      }
+    }
+  }
 `;
 const ImgSliderWrap = styled.div`
   display: flex;
@@ -159,6 +235,9 @@ const ImgSliderWrap = styled.div`
   align-items: center;
   margin-top: 7.8rem;
   margin-bottom: 8.4em;
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
   .title {
     width: 108.6rem;
     font-weight: 600;
@@ -167,6 +246,25 @@ const ImgSliderWrap = styled.div`
     letter-spacing: -0.03em;
 
     color: #373737;
+  }
+  @media screen and (max-width: 500px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 7.8rem;
+    margin-bottom: 8.4em;
+    @media screen and (max-width: 500px) {
+      display: none;
+    }
+    .title {
+      width: 108.6rem;
+      font-weight: 600;
+      font-size: 2.9rem;
+      line-height: 3.9rem;
+      letter-spacing: -0.03em;
+
+      color: #373737;
+    }
   }
 `;
 function Host() {
@@ -232,7 +330,11 @@ function Host() {
         <div className="supportInfo">
           <div
             className="text"
-            style={{ paddingLeft: 0, paddingTop: "2.4rem", width: "27.2rem" }}
+            // style={{
+            //   paddingLeft: 0,
+            //   paddingTop: "2.4rem",
+            //   width: "27.2rem"
+            // }}
           >
             <div className="text__top">호스트를 보호하는 다양한 프로그램</div>
             <div className="text__middle">
@@ -244,11 +346,11 @@ function Host() {
           </div>
           <div
             className="text"
-            style={{
-              paddingLeft: "13.5rem",
-              paddingTop: "2.4rem",
-              width: "27.2rem"
-            }}
+            // style={{
+            //   paddingLeft: "13.5rem",
+            //   paddingTop: "2.4rem",
+            //   width: "27.2rem"
+            // }}
           >
             <div className="text__top">코로나19 방역을 위한 안전 수칙</div>
             <div className="text__middle">
@@ -259,11 +361,11 @@ function Host() {
           </div>
           <div
             className="text"
-            style={{
-              paddingLeft: "13.5rem",
-              paddingTop: "2.4rem",
-              width: "27.2rem"
-            }}
+            // style={{
+            //   paddingLeft: "13.5rem",
+            //   paddingTop: "2.4rem",
+            //   width: "27.2rem"
+            // }}
           >
             <div className="text__top">높은 게스트 기준</div>
             <div className="text__middle">

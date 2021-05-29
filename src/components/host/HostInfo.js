@@ -9,6 +9,9 @@ const HostInfoWrap = styled.div`
   display: flex;
   background: #f7f7f7;
   border-bottom: 1px solid #dddddd;
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
 
   .text {
     margin: 5.5rem 13.9rem 0 5.7rem;
