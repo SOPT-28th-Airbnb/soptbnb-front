@@ -3,43 +3,97 @@ import styled from "styled-components";
 import Dot from "../../assets/img/footer_dot_01.svg";
 
 const FooterWrap = styled.div`
-  .footer {
-    width: 100%;
-    background-color: #f7f7f7;
-    &__main {
-      padding: 35px;
-      display: flex;
-      justify-content: space-between;
-      &--section {
-        width: 100%;
+  @media screen and (max-width: 500px) {
+    .footer {
+      width: 100vw;
+      background-color: #f7f7f7;
+      &__main {
+        width: 100vw-5rem;
+        margin: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        &--title {
+          font-size: 0.8rem;
+          font-weight: 600;
+          line-height: 118%;
+          margin-top: 2rem;
+        }
+        &--part {
+          font-weight: 400;
+          line-height: 150%;
+        }
       }
-      &--title {
-        font-size: 0.8rem;
-        font-weight: 600;
-        line-height: 118%;
-      }
-      &--part {
-        font-weight: 400;
-        line-height: 150%;
-      }
-    }
 
-    &__line {
-      margin-top: 32px;
-      border: 1px solid #dddddd;
-    }
-    &__bottom {
-      display: flex;
-      margin: 15px 0px;
-      &--company {
-        margin-right: 15px;
-        color: #747474;
+      &__bottom {
+        width: 100vw-5rem;
+        padding: 2.5rem;
+        &--company {
+          margin-top: 1.4rem;
+          color: #747474;
+        }
+        &--part {
+          margin: 0px 5px;
+          font-weight: 500;
+          line-height: 150%;
+          color: #747474;
+          margin-bottom: 2.3rem;
+        }
+        &--partContainer {
+          display: flex;
+        }
       }
-      &--part {
-        margin: 0px 5px;
-        font-weight: 500;
-        line-height: 150%;
-        color: #747474;
+    }
+    .mobile__line {
+      display: block;
+      border: 1px solid #dddddd;
+      margin-top: 3rem;
+    }
+    .mobile_hide {
+      display: none;
+    }
+  }
+  @media screen and (min-width: 501px) {
+    .footer {
+      width: 100%;
+      background-color: #f7f7f7;
+      &__main {
+        padding: 35px;
+        display: flex;
+        justify-content: space-between;
+        &--section {
+          width: 100%;
+        }
+        &--title {
+          font-size: 0.8rem;
+          font-weight: 600;
+          line-height: 118%;
+        }
+        &--part {
+          font-weight: 400;
+          line-height: 150%;
+        }
+      }
+
+      &__line {
+        margin-top: 32px;
+        border: 1px solid #dddddd;
+      }
+      &__bottom {
+        display: flex;
+        padding: 15px 0px;
+        &--company {
+          margin-right: 15px;
+          color: #747474;
+        }
+        &--partContainer {
+          display: flex;
+        }
+        &--part {
+          margin: 0px 5px;
+          font-weight: 500;
+          line-height: 150%;
+          color: #747474;
+        }
       }
     }
   }
@@ -65,6 +119,7 @@ function Footer(props) {
             <p className="footer__main--part">채용정보</p>
             <p className="footer__main--part">창립자 편지</p>
           </div>
+          <div className="mobile__line"></div>
           <div className="footer__main--section">
             <h1 className="footer__main--title">커뮤니티</h1>
             <p className="footer__main--part">다양성 및 소속감</p>
@@ -74,6 +129,7 @@ function Footer(props) {
             <p className="footer__main--part">게스트 추천</p>
             <p className="footer__main--part">Airbnb.org</p>
           </div>
+          <div className="mobile__line"></div>
           <div className="footer__main--section">
             <h1 className="footer__main--title">호스팅하기</h1>
             <p className="footer__main--part">숙소 호스팅</p>
@@ -84,6 +140,7 @@ function Footer(props) {
             <p className="footer__main--part">커뮤니티 센터</p>
             <p className="footer__main--part">접근성</p>
           </div>
+          <div className="mobile__line"></div>
           <div className="footer__main--section">
             <h1 className="footer__main--title">에어비앤비 지원</h1>
             <p className="footer__main--part">
@@ -97,17 +154,24 @@ function Footer(props) {
         </div>
         <div className="footer__line"></div>
         <div className="footer__bottom">
+          <div className="mobile__line"></div>
           <div className="footer__bottom--company">ⓒ 2021 Airbnb,Inc </div>
-          <img className="footer__bottom--part" src={Dot} alt=""></img>
-          <div className="footer__bottom--part">개인정보 처리방침</div>
-          <img className="footer__bottom--part" src={Dot} alt=""></img>
-          <div className="footer__bottom--part">이용약관</div>
-          <img className="footer__bottom--part" src={Dot} alt=""></img>
-          <div className="footer__bottom--part">사이트맵</div>
-          <img className="footer__bottom--part" src={Dot} alt=""></img>
-          <div className="footer__bottom--part">한국의 변경된 환불 정책</div>
-          <img className="footer__bottom--part" src={Dot} alt=""></img>
-          <div className="footer__bottom--part">회사 세부정보</div>
+          <div className="footer__bottom--partContainer">
+            <img
+              className="footer__bottom--part mobile_hide"
+              src={Dot}
+              alt=""
+            ></img>
+            <div className="footer__bottom--part">개인정보 처리방침</div>
+            <img className="footer__bottom--part" src={Dot} alt=""></img>
+            <div className="footer__bottom--part">이용약관</div>
+            <img className="footer__bottom--part" src={Dot} alt=""></img>
+            <div className="footer__bottom--part">사이트맵</div>
+            <img className="footer__bottom--part" src={Dot} alt=""></img>
+            <div className="footer__bottom--part">한국의 변경된 환불 정책</div>
+            <img className="footer__bottom--part" src={Dot} alt=""></img>
+            <div className="footer__bottom--part">회사 세부정보</div>
+          </div>
         </div>
       </div>
     </FooterWrap>

@@ -8,6 +8,8 @@ import Ellipse from "../../assets/img/Ellipse.svg";
 import userProfile from "../../assets/img/userProfile.svg";
 import hamburgerIcon from "../../assets/img/hamburgerIcon.svg";
 import { withRouter, Link } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
+import search_icon from "../../assets/img/search_icon.svg";
 
 const MainHeaderWrap = styled.div`
   .main__top {
@@ -117,7 +119,48 @@ const MainHeaderWrap = styled.div`
   }
 `;
 
+const MobileHeaderWrap = styled.div`
+  .mobilemain {
+    width: 100vw;
+    &__covid19 {
+      background: #f7f7f7;
+      font-size: 1rem;
+      text-align: center;
+      line-height: 3.8rem;
+      text-decoration-line: underline;
+      color: #000000;
+      cursor: pointer;
+      letter-spacing: -0.05em;
+    }
+    &__search {
+      width: 100vw-48px;
+      margin: 11px 24px 11px 24px;
+      height: 3.4rem;
+      background: #ffffff;
+      box-shadow: 0px 5px 4px rgba(180, 180, 180, 0.25);
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+
+      &--icon {
+        width: 13.91px;
+        height: 11px;
+        margin: 0 19.5px;
+      }
+      &--question {
+        font-size: 1.2rem;
+      }
+    }
+    &__image {
+      width: 100vw;
+      height: 48.7rem;
+      object-fit: cover;
+    }
+  }
+`;
+
 const MainHeader = ({ history }) => {
+  const isMobile = useMediaQuery({ maxWidth: 500 });
   const [btnIndex, setBtnIndex] = useState(0);
   const accommoBtnListener = () => {
     setBtnIndex(0);
@@ -130,11 +173,28 @@ const MainHeader = ({ history }) => {
     history.push("/host");
   };
 
-  return (
+  return isMobile ? (
+    <MobileHeaderWrap>
+      <div className="mobilemain">
+        <Link to="/">
+          <div className="mobilemain__covid19">
+            에어비앤비의 코로나19대응 방안에 대한 최신 정보를 확인하세요.
+          </div>
+        </Link>
+        <div className="mobilemain__search">
+          <img src={search_icon} alt="" className="mobilemain__search--icon" />
+          <div className="mobilemain__search--question">어디로 여행가세요?</div>
+        </div>
+        <img className="mobilemain__image" src={HomeBannerImg} alt=""></img>
+      </div>
+    </MobileHeaderWrap>
+  ) : (
     <MainHeaderWrap>
       <div className="main__top">
         <Link to="/">
-          에어비앤비의 코로나19대응 방안에 대한 최신 정보를 확인하세요.
+          <div className="main__top--Covid19">
+            에어비앤비의 코로나19대응 방안에 대한 최신 정보를 확인하세요.
+          </div>
         </Link>
       </div>
       <div className="header">

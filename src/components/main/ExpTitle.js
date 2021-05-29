@@ -1,10 +1,19 @@
 import React from "react";
 import TitleWrap from "../../lib/styles/TitleWrap";
 import SubtitleWrap from "../../lib/styles/SubtitleWrap";
+import { useMediaQuery } from "react-responsive";
 
 const WanderTitle = () => {
-  return (
-    <>
+  const isMobile = useMediaQuery({ maxWidth: 500 });
+
+  return isMobile ? (
+    <TitleWrap>
+      <div className="title" style={{ "padding-bottom": "0.3rem" }}>
+        서울의 매력을 체험할 수 있는 방법
+      </div>
+    </TitleWrap>
+  ) : (
+    <TitleWrap>
       <TitleWrap>
         <div className="title" style={{ "padding-bottom": "0.3rem" }}>
           체험 둘러보기
@@ -16,7 +25,7 @@ const WanderTitle = () => {
           참여해 보세요.
         </div>
       </SubtitleWrap>
-    </>
+    </TitleWrap>
   );
 };
 

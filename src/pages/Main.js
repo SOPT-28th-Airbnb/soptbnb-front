@@ -12,35 +12,35 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 const MainWrap = styled.div`
-  width: 100%;
+  @media screen and (max-width: 500px) {
+    width: 100vw;
 
-  .main {
-    margin: 0 10rem;
-    display: flex;
-    flex-direction: column;
-    width: 100rem;
+    .main {
+      margin: 1rem 2.3rem 0 2.3rem;
+      display: flex;
+      flex-direction: column;
+      width: 100vw-2.3rem;
 
-    &__near {
-      width: 100%;
-      display: grid;
-      flex-wrap: nowrap;
-      grid-template-columns: repeat(4, 1fr);
-      grid-gap: 1rem;
+      &__near {
+        width: 100vw;
+        display: grid;
+        flex-wrap: nowrap;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 1rem;
+      }
     }
   }
 
-  @media screen and (min-width: 500px) and (max-width: 1024px) {
-    width: 100%;
-
+  @media screen and (min-width: 501px) {
+    width: 120rem;
     .main {
-      margin: 4rem;
-      width: 100%;
-
+      margin: 4rem 10rem;
+      width: 100%-10rem;
       &__near {
         width: 100%;
         display: grid;
         flex-wrap: nowrap;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         grid-gap: 1rem;
       }
     }
@@ -67,7 +67,6 @@ function Main() {
     <MainWrap>
       <MainHeader />
       <div className="main">
-        <div style={{ height: "4rem" }} />
         <NearTitle />
         <div style={{ height: "2rem" }} />
         <div className="main__near">
@@ -97,8 +96,6 @@ function Main() {
         <div style={{ height: "1.3rem" }} />
         {exp.length !== 0 && <ImageSlider type="exp" list={exp} />}
       </div>
-      <div style={{ height: "4.5rem" }} />
-
       <Footer />
     </MainWrap>
   );
