@@ -16,9 +16,14 @@ html {
     font-size: 8px;
   }
 }
-@media screen and (min-width:500px) and (max-width: 1024px){
-  html{
+@media screen and (min-width: 500px) and (max-width: 1024px) {
+  html {
     font-size: 6px;
+  }
+}
+@media screen and (max-width: 500px) {
+  html {
+    font-size: 10px;
   }
 }
 body {
