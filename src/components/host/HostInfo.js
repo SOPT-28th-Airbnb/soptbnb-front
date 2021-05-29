@@ -130,7 +130,7 @@ const HostInfo = () => {
     if (!checkState) {
       alert("이메일 구독 취소에 관련한 내용을 숙지하였음을 확인해주세요.");
     } else {
-      if (dataState.name == "" || dataState.email == "") {
+      if (dataState.name === "" || dataState.email === "") {
         alert("❗ 필수 사항을 모두 입력하셔야 합니다 ❗");
       } else {
         setModalState(true);

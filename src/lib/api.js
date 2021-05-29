@@ -7,37 +7,40 @@ const instance = axios.create({
 
 export const getNearCard = async () => {
   try {
-    const data = await instance.get("/api");
+    const data = await instance.get("/api/spot");
     console.log(data);
     console.log("[SUCCESS] GET near card data");
     return data.data.data.spot;
   } catch (e) {
-    console.log("[FAIL] GET card data");
+    console.log("[FAIL] GET near card data");
     return null;
   }
 };
 
-export const getResidCard = async () => {
+export const getResideCard = async () => {
   try {
-    const data = await instance.get("/api");
+    const data = await instance.get("/api/residence");
+    console.log(data);
     console.log("[SUCCESS] GET residence card data");
     return data.data.data.residence;
   } catch (e) {
-    console.log("[FAIL] GET card data");
+    console.log("[FAIL] GET residence card data");
     return null;
   }
 };
 
 export const getExpCard = async () => {
   try {
-    const data = await instance.get("/api");
+    const data = await instance.get("/api/exp");
+    console.log(data);
     console.log("[SUCCESS] GET exp card data");
     return data.data.data.exp;
   } catch (e) {
-    console.log("[FAIL] GET card data");
+    console.log("[FAIL] GET exp card data");
     return null;
   }
 };
+
 export const postHostInfo = async (hostdata) => {
   try {
     console.log("data", hostdata);

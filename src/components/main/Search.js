@@ -75,10 +75,11 @@ const EachSearch = ({ index }) => {
             <p className="search__part--title">인원</p>
             <p className="search__part--input">게스트 추가</p>
           </div>
-          <img className="search__part--searchBtn" src={searchBtn} />
+          <img className="search__part--searchBtn" src={searchBtn} alt="" />
         </EachSearchWrap>
       );
     }
+
     case 1: {
       return (
         <EachSearchWrap>
@@ -91,10 +92,13 @@ const EachSearch = ({ index }) => {
             <p className="search__part--title">날짜</p>
             <p className="search__part--input">원하는 날짜를 입력하세요.</p>
           </div>
-          <img className="search__part--searchBtn" src={searchBtn} />
+          <img className="search__part--searchBtn" src={searchBtn} alt="" />
         </EachSearchWrap>
       );
     }
+
+    default:
+      return;
   }
 };
 

@@ -1,13 +1,12 @@
 import NearTitle from "../components/main/NearTitle";
-import TypeTitle from "../components/main/TypeTitle";
-import WanderTitle from "../components/main/WanderTitle";
+import ResideTitle from "../components/main/ResideTitle";
+import ExpTitle from "../components/main/ExpTitle";
 import NearCard from "../components/main/NearCard";
-import TypeCard from "../components/main/TypeCard";
 import HostCard from "../components/main/HostCard";
-import WanderCard from "../components/main/WanderCard";
 import Footer from "../components/common/Footer";
 import MainHeader from "../components/main/MainHeader";
-import { getNearCard, getResidCard, getExpCard } from "../lib/api";
+import ImageSlider from "../components/main/ImageSlider/ImageSlider";
+import { getNearCard, getResideCard, getExpCard } from "../lib/api";
 
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
@@ -28,55 +27,37 @@ const MainWrap = styled.div`
       grid-template-columns: repeat(4, 1fr);
       grid-gap: 1rem;
     }
+  }
 
-    &__type {
-      width: 100%;
-      display: flex;
-      flex-wrap: nowrap;
-    }
+  @media screen and (min-width: 500px) and (max-width: 1024px) {
+    width: 100%;
 
-    &__wander {
-      margin-top: 1rem;
+    .main {
+      margin: 4rem;
       width: 100%;
-      display: flex;
-      flex-wrap: nowrap;
+
+      &__near {
+        width: 100%;
+        display: grid;
+        flex-wrap: nowrap;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 1rem;
+      }
     }
   }
 `;
 
 function Main() {
-  const [near, setNear] = useState([
-    {
-      id: 1,
-      name: "서울",
-      dist: 20,
-    },
-  ]);
-
-  const [type, setType] = useState([
-    {
-      id: 1,
-      desc: "집 전체",
-    },
-  ]);
-
-  const [exp, setExp] = useState([
-    {
-      id: 1,
-      type: "체험",
-      desc: "어디에서든 세계 각지의 매력을 만나실 수 있습니다.",
-    },
-  ]);
+  const [near, setNear] = useState([]);
+  const [reside, setReside] = useState([]);
+  const [exp, setExp] = useState([]);
 
   useEffect(() => {
     (async () => {
       const near = await getNearCard();
-      console.log(near);
       setNear(near);
-
-      const resid = await getResidCard();
-      setType(resid);
-
+      const reside = await getResideCard();
+      setReside(reside);
       const exp = await getExpCard();
       setExp(exp);
     })();
@@ -94,7 +75,7 @@ function Main() {
             near.map((place) => {
               return (
                 <NearCard
-                  key={place.id}
+                  key={place._id}
                   name={place.name}
                   dist={place.time}
                   img={place.img}
@@ -104,34 +85,17 @@ function Main() {
         </div>
         <div style={{ height: "4rem" }} />
 
-        <TypeTitle />
+        <ResideTitle />
         <div style={{ height: "1rem" }} />
-        <div className="main__type">
-          {type &&
-            type.map((type) => {
-              return <TypeCard key={type.id} desc={type.desc} img={type.img} />;
-            })}
-        </div>
+        {reside.length !== 0 && <ImageSlider type="reside" list={reside} />}
         <div style={{ height: "4.5rem" }} />
 
         <HostCard />
         <div style={{ height: "3rem" }} />
 
-        <WanderTitle />
+        <ExpTitle />
         <div style={{ height: "1.3rem" }} />
-        <div className="main__wander">
-          {exp &&
-            exp.map((exp) => {
-              return (
-                <WanderCard
-                  key={exp.id}
-                  img={exp.img}
-                  type={exp.type}
-                  desc={exp.desc}
-                />
-              );
-            })}
-        </div>
+        {exp.length !== 0 && <ImageSlider type="exp" list={exp} />}
       </div>
       <div style={{ height: "4.5rem" }} />
 
