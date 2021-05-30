@@ -5,12 +5,13 @@ import NearCard from "../components/main/NearCard";
 import HostCard from "../components/main/HostCard";
 import Footer from "../components/common/Footer";
 import MainHeader from "../components/main/MainHeader";
+import MobileSlider from "../components/main/ImageSlider/MobileSlider";
 import ImageSlider from "../components/main/ImageSlider/ImageSlider";
 import { getNearCard, getResideCard, getExpCard } from "../lib/api";
+import { useMediaQuery } from "react-responsive";
 
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-
 const MainWrap = styled.div`
   @media screen and (max-width: 500px) {
     width: 100vw;
@@ -48,6 +49,8 @@ const MainWrap = styled.div`
 `;
 
 function Main() {
+  const isMobile = useMediaQuery({ maxWidth: 500 });
+
   const [near, setNear] = useState([]);
   const [reside, setReside] = useState([]);
   const [exp, setExp] = useState([]);
@@ -86,15 +89,19 @@ function Main() {
 
         <ResideTitle />
         <div style={{ height: "1rem" }} />
-        {reside.length !== 0 && <ImageSlider type="reside" list={reside} />}
-        <div style={{ height: "4.5rem" }} />
+        {isMobile
+          ? reside.length !== 0 && <MobileSlider type="reside" list={reside} />
+          : reside.length !== 0 && <ImageSlider type="reside" list={reside} />}
+        {!isMobile && <div style={{ height: "4.5rem" }} />}
 
         <HostCard />
         <div style={{ height: "3rem" }} />
 
         <ExpTitle />
-        <div style={{ height: "1.3rem" }} />
-        {exp.length !== 0 && <ImageSlider type="exp" list={exp} />}
+        {!isMobile && <div style={{ height: "1.3rem" }} />}
+        {isMobile
+          ? exp.length !== 0 && <MobileSlider type="exp" list={exp} />
+          : exp.length !== 0 && <ImageSlider type="exp" list={exp} />}
       </div>
       <Footer />
     </MainWrap>
