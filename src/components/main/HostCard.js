@@ -7,15 +7,35 @@ import HostCardImg from "../../assets/img/HostCardImg.svg";
 // place img 받기
 
 const HostCardWrap = styled.div`
-  .card__host {
-    position: relative;
-    width: 100%;
-
-    &--img {
+  @media screen and (max-width: 500px) {
+    .card__host {
+      position: relative;
       width: 100%;
-      height: 100%;
-    }
 
+      &--img {
+        width: 45.4rem;
+        height: 306px;
+        object-fit: cover;
+        border-radius: 15px;
+        filter: brightness(50%);
+      }
+    }
+  }
+  @media screen and (min-width: 501px) {
+    .card__host {
+      position: relative;
+      width: 100%;
+
+      &--img {
+        width: 100rem;
+        height: 30.6rem;
+        /* width: 100%; */
+        /* height: 100%; */
+      }
+    }
+  }
+
+  .card__host {
     &--desc {
       height: 100%;
       display: flex;
@@ -27,7 +47,6 @@ const HostCardWrap = styled.div`
       color: white;
       padding: 1rem;
     }
-
     &--title {
       font-size: 3rem;
       font-weight: bold;
@@ -53,7 +72,7 @@ const HostCardWrap = styled.div`
   }
 `;
 
-const NearCard = ({ name, dist, history }) => {
+const HostCard = ({ name, dist, history }) => {
   const handleClick = (e) => {
     history.push("/host");
   };
@@ -80,4 +99,4 @@ const NearCard = ({ name, dist, history }) => {
   );
 };
 
-export default withRouter(NearCard);
+export default withRouter(HostCard);
