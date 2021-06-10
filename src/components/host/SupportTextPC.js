@@ -53,29 +53,6 @@ const TextfieldWrap = styled.div`
     display: flex;
     flex-direction: row;
   }
-  @media screen and (max-width: 500px) {
-    display: flex;
-    justify-content: start;
-    align-items: flex-start;
-    flex-direction: column;
-    width: 100vw;
-    .mainTitle {
-      margin-left: 2.4rem;
-      margin-top: 3.1rem;
-    }
-    .text {
-      padding-top: 4rem;
-      padding-left: 2.4rem;
-      width: 23rem;
-    }
-    .supportTitle {
-      width: 100vw;
-    }
-    .supportInfo {
-      display: flex;
-      flex-direction: column;
-    }
-  }
 `;
 
 const SupportTextPC = () => {

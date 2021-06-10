@@ -196,6 +196,67 @@ const ImgSliderWrap = styled.div`
     }
   }
 `;
+const Banner = styled.div`
+  width: 120rem;
+  height: 38.6rem;
+  background: url(${(props) => props.bg}) no-repeat center center;
+  background-size: cover;
+  .text {
+    position: relative;
+    top: 13.2rem;
+    left: 5.5rem;
+    color: #ffffff;
+
+    &__middle {
+      font-weight: 600;
+      font-size: 2.9rem;
+      line-height: 130%;
+      font-style: normal;
+      letter-spacing: -0.02em;
+    }
+    &__bottom {
+      width: 41.6rem;
+      font-size: 1.4rem;
+      line-height: 2.2rem;
+    }
+  }
+  .startBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 0rem;
+    left: 5.5rem;
+    width: 9.4rem;
+    height: 4.2rem;
+    background: #ff395c;
+    border-radius: 0.6rem;
+
+    font-weight: 300;
+    font-size: 1.2rem;
+    color: white;
+  }
+  @media screen and (max-width: 500px) {
+    width: 50rem;
+    height: 34.7rem;
+    .text {
+      position: relative;
+      top: 11rem;
+      left: 2.4rem;
+      &__middle {
+        width: 45.6rem;
+      }
+      &__bottom {
+        width: 41.6rem;
+      }
+    }
+    .startBtn {
+      position: absolute;
+      top: 48.8rem;
+      left: 2.4rem;
+    }
+  }
+`;
 function Host() {
   const isMobile = useMediaQuery({ maxWidth: 500 });
   return (
@@ -235,7 +296,7 @@ function Host() {
         <ImageSlider />
       </ImgSliderWrap>
       {isMobile ? <SupportTextMobile /> : <SupportTextPC />}
-      <Header style={{ marginTop: "4.5rem" }} bg={HeaderImg2}>
+      <Banner style={{ marginTop: "4.5rem" }} bg={HeaderImg2}>
         <div className="text">
           <div className="text__middle">호스팅 시작하기</div>
           <div className="text__bottom">
@@ -243,7 +304,7 @@ function Host() {
           </div>
         </div>
         <div className="startBtn">시작하기</div>
-      </Header>
+      </Banner>
       <HostInfo />
       <Footer />
     </>
