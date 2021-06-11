@@ -168,6 +168,8 @@ const ImgSliderWrap = styled.div`
   margin-top: 7.8rem;
   margin-bottom: 8.4em;
   @media screen and (max-width: 500px) {
+    margin-top: 4.8rem;
+    margin-bottom: 4.8rem;
   }
   .title {
     width: 108.6rem;

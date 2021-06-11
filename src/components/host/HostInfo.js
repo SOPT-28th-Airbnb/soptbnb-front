@@ -10,11 +10,16 @@ const HostInfoWrap = styled.div`
   background: #f7f7f7;
   border-bottom: 1px solid #dddddd;
   @media screen and (max-width: 500px) {
-    display: none;
+    width: 50rem;
+    flex-direction: column;
   }
 
   .text {
     margin: 5.5rem 13.9rem 0 5.7rem;
+    @media screen and (max-width: 500px) {
+      margin: 2.1rem 0 0 2.8rem;
+    }
+
     &__main {
       width: 42.2rem;
       font-weight: 600;
@@ -23,6 +28,11 @@ const HostInfoWrap = styled.div`
       letter-spacing: -0.01em;
 
       color: #373737;
+      @media screen and (max-width: 500px) {
+        width: 31.7rem;
+        font-size: 2.4rem;
+        line-height: 3.2rem;
+      }
     }
     &__sub {
       width: 40.2rem;
@@ -33,11 +43,19 @@ const HostInfoWrap = styled.div`
       line-height: 165%;
       letter-spacing: -0.03em;
       color: #747474;
+      @media screen and (max-width: 500px) {
+        width: 32rem;
+        margin: 2.1rem 0 5.4rem 0;
+        line-height: 1.9rem;
+      }
     }
   }
   .info {
     margin: 5.7rem 26.6rem 0 0;
     width: 31.4rem;
+    @media screen and (max-width: 500px) {
+      margin: 0 0 0 2.5rem;
+    }
     &__input {
       width: 100%;
       border: 0.1rem solid #dddddd;
@@ -111,6 +129,9 @@ const HostInfoWrap = styled.div`
       font-size: 1.2rem;
       line-height: 165%;
       color: #ffffff;
+      @media screen and (max-width: 500px) {
+        margin-bottom: 6.4rem;
+      }
     }
   }
 `;

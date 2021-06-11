@@ -6,23 +6,12 @@ const TextfieldWrap = styled.div`
   justify-content: start;
   align-items: flex-start;
   flex-direction: column;
-  width: 100vw;
-  .mainTitle {
-    margin-top: 8.3rem;
-    font-weight: 600;
-    font-size: 3.1rem;
-    line-height: 4.5rem;
-    margin-left: 2.4rem;
-    margin-top: 3.1rem;
-    color: #373737;
-  }
+  width: 45.1rem;
   .text {
-    padding-top: 8.7rem;
-    padding-left: 14.3rem;
-    width: 23rem;
     padding-top: 4rem;
     padding-left: 2.4rem;
-    width: 23rem;
+    width: 27.2rem;
+
     &__top {
       font-weight: 600;
       font-size: 1.7rem;
@@ -44,21 +33,22 @@ const TextfieldWrap = styled.div`
       line-height: 150%;
       color: #373737;
       text-decoration: underline;
-      /* border-bottom: 1px solid #373737; */
     }
   }
   .supportTitle {
-    width: 108.6rem;
     font-weight: 600;
     font-size: 2.9rem;
     line-height: 3.9rem;
     letter-spacing: -0.03em;
     color: #373737;
     width: 100vw;
+    @media screen and (max-width: 500px) {
+      width: 45.1rem;
+      margin-left: 2.6rem;
+      font-size: 2.5rem;
+    }
   }
   .supportInfo {
-    display: flex;
-    flex-direction: row;
     display: flex;
     flex-direction: column;
   }
@@ -69,14 +59,7 @@ const SupportTextMobile = () => {
     <TextfieldWrap style={{ flexDirection: "column" }}>
       <div className="supportTitle">애어비앤비의 호스트 지원</div>
       <div className="supportInfo">
-        <div
-          className="text"
-          style={{
-            paddingLeft: 0,
-            paddingTop: "2.4rem",
-            width: "27.2rem"
-          }}
-        >
+        <div className="text">
           <div className="text__top">호스트를 보호하는 다양한 프로그램</div>
           <div className="text__middle">
             혹시라도 사고가 발생하는 경우에 대비하여, 대부분의 에어비앤비
