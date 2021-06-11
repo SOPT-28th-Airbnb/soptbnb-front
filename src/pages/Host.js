@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useMediaQuery } from "react-responsive";
 import HeaderImg from "../assets/img/img_main_01.webp";
 import symbolImg from "../assets/img/ic_symbol_soptbnb.svg";
 import logoImg from "../assets/img/ic_soptbnb.svg";
@@ -8,6 +9,10 @@ import HeaderImg2 from "../assets/img/img_main_02.webp";
 import Footer from "../components/common/Footer";
 import HostInfo from "../components/host/HostInfo";
 import ImageSlider from "../components/host/ImageSlider";
+import TextPC from "../components/host/TextPC";
+import TextMobile from "../components/host/TextMobile";
+import SupportTextMobile from "../components/host/SupportTextMobile";
+import SupportTextPC from "../components/host/SupportTextPC";
 
 const Header = styled.div`
   width: 120rem;
@@ -29,12 +34,13 @@ const Header = styled.div`
     position: relative;
     top: 9.7rem;
     left: 5.6rem;
-    /* font-family: "Noto Sans"; */
-
     color: #ffffff;
+    width: 55.7rem;
+
     &__top {
       font-size: 1.4rem;
       line-height: 2.2rem;
+      width: 10rem;
     }
     &__middle {
       font-weight: 600;
@@ -65,58 +71,29 @@ const Header = styled.div`
     font-size: 1.2rem;
     color: white;
   }
-`;
-const TextfieldWrap = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  .mainTitle {
-    margin-left: 5.7rem;
-    margin-top: 8.3rem;
-    font-weight: 600;
-    font-size: 3.1rem;
-    line-height: 4.5rem;
-    color: #373737;
-  }
-  .text {
-    padding-top: 8.7rem;
-    padding-left: 14.3rem;
-    width: 23rem;
-    &__top {
-      font-weight: 600;
-      font-size: 1.7rem;
-      line-height: 2.3rem;
-
-      color: #373737;
+  @media screen and (max-width: 500px) {
+    width: 100vw;
+    height: 64.8rem;
+    .title {
+      display: none;
     }
-    &__middle {
-      margin-top: 1.9rem;
-      font-weight: 500;
-      font-size: 1.2rem;
-      line-height: 165%;
-      color: #747474;
+    .text {
+      position: relative;
+      top: 28.8rem;
+      left: 2.5rem;
+      width: 45.6rem;
+      &__middle {
+        width: 45.6rem;
+      }
+      &__bottom {
+        width: 41.6rem;
+      }
     }
-    &__bottom {
-      margin-top: 1.9rem;
-      font-weight: 500;
-      font-size: 1rem;
-      line-height: 150%;
-      color: #373737;
-      text-decoration: underline;
-      /* border-bottom: 1px solid #373737; */
+    .startBtn {
+      position: absolute;
+      top: 48.8rem;
+      left: 2.4rem;
     }
-  }
-  .supportTitle {
-    width: 108.6rem;
-    font-weight: 600;
-    font-size: 2.9rem;
-    line-height: 3.9rem;
-    letter-spacing: -0.03em;
-    color: #373737;
-  }
-  .supportInfo {
-    display: flex;
-    flex-direction: row;
   }
 `;
 const ReviewCard = styled.div`
@@ -152,6 +129,37 @@ const ReviewCard = styled.div`
       color: #747474;
     }
   }
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+    margin-top: 5rem;
+    margin-left: 2.4rem;
+    .reviewImg {
+      width: 45.1rem;
+      height: 16.3rem;
+      border-radius: 1rem 1rem 0rem 0rem;
+      object-fit: cover;
+    }
+    .reviewText {
+      width: 45.1rem;
+      background: #f7f7f7;
+      border-radius: 0rem 0rem 1rem 1rem;
+      &__title {
+        width: 40.7rem;
+        margin: 2rem 2.2rem 1.2rem 2.2rem;
+        font-weight: 600;
+        font-size: 1.7rem;
+        line-height: 2.3rem;
+      }
+      &__subTitle {
+        font-weight: 300;
+        font-size: 1.2rem;
+        line-height: 2rem;
+        margin: 0 0 1.7rem 2.2rem;
+
+        color: #747474;
+      }
+    }
+  }
 `;
 const ImgSliderWrap = styled.div`
   display: flex;
@@ -159,6 +167,10 @@ const ImgSliderWrap = styled.div`
   align-items: center;
   margin-top: 7.8rem;
   margin-bottom: 8.4em;
+  @media screen and (max-width: 500px) {
+    margin-top: 4.8rem;
+    margin-bottom: 4.8rem;
+  }
   .title {
     width: 108.6rem;
     font-weight: 600;
@@ -167,9 +179,70 @@ const ImgSliderWrap = styled.div`
     letter-spacing: -0.03em;
 
     color: #373737;
+    @media screen and (max-width: 500px) {
+      width: 45.1rem;
+    }
+  }
+`;
+const Banner = styled.div`
+  width: 120rem;
+  height: 38.6rem;
+  background: url(${(props) => props.bg}) no-repeat center center;
+  background-size: cover;
+  .text {
+    position: relative;
+    top: 13.2rem;
+    left: 5.5rem;
+    color: #ffffff;
+
+    &__middle {
+      font-weight: 600;
+      font-size: 2.9rem;
+      line-height: 130%;
+      font-style: normal;
+      letter-spacing: -0.02em;
+    }
+    &__bottom {
+      font-weight: 300;
+      font-size: 1.4rem;
+      line-height: 2.2rem;
+      letter-spacing: -0.04em;
+    }
+  }
+  .startBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 0rem;
+    left: 5.5rem;
+    width: 9.4rem;
+    height: 4.2rem;
+    background: #ff395c;
+    border-radius: 0.6rem;
+
+    font-weight: 300;
+    font-size: 1.2rem;
+    color: white;
+  }
+  @media screen and (max-width: 500px) {
+    width: 50rem;
+    height: 34.7rem;
+    .text {
+      position: relative;
+      top: 11rem;
+      left: 2.4rem;
+      width: 27.9rem;
+    }
+    .startBtn {
+      position: relative;
+      top: 12.6rem;
+      left: 2.4rem;
+    }
   }
 `;
 function Host() {
+  const isMobile = useMediaQuery({ maxWidth: 500 });
   return (
     <>
       <Header bg={HeaderImg}>
@@ -187,28 +260,7 @@ function Host() {
         </div>
         <div className="startBtn">시작하기</div>
       </Header>
-      <TextfieldWrap>
-        <div className="mainTitle">
-          내 인생의 새로운 시작, <br />
-          호스트가 되면 가능합니다.
-        </div>
-        <div className="text">
-          <div className="text__top">새로운 가능성이 열립니다</div>
-          <div className="text__middle">
-            호스팅을 통해 내가 원하는 시간에 유연하게 일하면서 부수입을 올리고
-            전 세계 사람들을 만나세요.
-          </div>
-          <div className="text__bottom">호스팅에 대해 알아보기</div>
-        </div>
-        <div className="text">
-          <div className="text__top">안심할 수 있는 호스팅</div>
-          <div className="text__middle">
-            연중무휴 지원, 호스트 커뮤니티, 호스트를 위한 맞춤 도구와 데이터
-            분석, 교육 등 에어비앤비는 다방면으로 호스트의 성공을 지원합니다.
-          </div>
-          <div className="text__bottom">에어비앤비의 호스트 지원 방법</div>
-        </div>
-      </TextfieldWrap>
+      {isMobile ? <TextMobile /> : <TextPC />}
       <ReviewCard>
         <img className="reviewImg" src={reviewCardImg} alt="" />
         <div className="reviewText">
@@ -227,58 +279,8 @@ function Host() {
         <div className="title">호스팅에 대해 알아보기</div>
         <ImageSlider />
       </ImgSliderWrap>
-      <TextfieldWrap style={{ flexDirection: "column" }}>
-        <div className="supportTitle">애어비앤비의 호스트 지원</div>
-        <div className="supportInfo">
-          <div
-            className="text"
-            style={{ paddingLeft: 0, paddingTop: "2.4rem", width: "27.2rem" }}
-          >
-            <div className="text__top">호스트를 보호하는 다양한 프로그램</div>
-            <div className="text__middle">
-              혹시라도 사고가 발생하는 경우에 대비하여, 대부분의 에어비앤비
-              예약에는 미화 최대 1백만 달러의 재산 피해 보호 및 책임배상보험이
-              포함됩니다.
-            </div>
-            <div className="text__bottom">에어비앤비의 호스트 보호 장치</div>
-          </div>
-          <div
-            className="text"
-            style={{
-              paddingLeft: "13.5rem",
-              paddingTop: "2.4rem",
-              width: "27.2rem"
-            }}
-          >
-            <div className="text__top">코로나19 방역을 위한 안전 수칙</div>
-            <div className="text__middle">
-              커뮤니티의 건강과 안전을 위해 전문가와 협력하여 방역 수칙과
-              호스트에게 도움이 될 청소 절차를 마련했습니다.
-            </div>
-            <div className="text__bottom">강화된 청소 절차 알아보기</div>
-          </div>
-          <div
-            className="text"
-            style={{
-              paddingLeft: "13.5rem",
-              paddingTop: "2.4rem",
-              width: "27.2rem"
-            }}
-          >
-            <div className="text__top">높은 게스트 기준</div>
-            <div className="text__middle">
-              호스트는 예약 확정 전에 게스트 신원과 게스트에 대한 후기를 확인할
-              수 있으므로 안심하고 예약을 받을 수 있습니다. 에어비앤비는 새로운
-              게스트 기준 정책을 통해 게스트가 지켜야 할 사항을 명확히 규정하고
-              있습니다.
-            </div>
-            <div className="text__bottom">
-              안심 호스팅을 위한 에어비앤비의 정책과 기능
-            </div>
-          </div>
-        </div>
-      </TextfieldWrap>
-      <Header style={{ marginTop: "4.5rem" }} bg={HeaderImg2}>
+      {isMobile ? <SupportTextMobile /> : <SupportTextPC />}
+      <Banner style={{ marginTop: "4.5rem" }} bg={HeaderImg2}>
         <div className="text">
           <div className="text__middle">호스팅 시작하기</div>
           <div className="text__bottom">
@@ -286,7 +288,7 @@ function Host() {
           </div>
         </div>
         <div className="startBtn">시작하기</div>
-      </Header>
+      </Banner>
       <HostInfo />
       <Footer />
     </>

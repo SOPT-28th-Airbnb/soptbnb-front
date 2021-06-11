@@ -23,7 +23,7 @@ const MainWrap = styled.div`
       width: 100vw-2.3rem;
 
       &__near {
-        width: 100vw;
+        width: 100%;
         display: grid;
         flex-wrap: nowrap;
         grid-template-columns: repeat(2, 1fr);

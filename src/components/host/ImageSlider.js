@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useMediaQuery } from "react-responsive";
 import styled from "styled-components";
 import list1 from "../../assets/img/img_list_01.svg";
 import list2 from "../../assets/img/img_list_02.svg";
@@ -9,37 +10,53 @@ import {
   faChevronLeft,
   faChevronRight
 } from "@fortawesome/free-solid-svg-icons";
+import mobileBtn from "../../assets/img/btn_search.svg";
 
+const LeftArrowWrap = styled.div`
+  padding: 1rem;
+  z-index: 5;
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
+`;
 const LeftArrow = ({ handleBtnClick }) => {
   return (
-    <div
-      className="backArrow"
-      onClick={handleBtnClick}
-      style={{
-        padding: "1rem"
-      }}
-    >
+    <LeftArrowWrap onClick={handleBtnClick}>
       <FontAwesomeIcon icon={faChevronLeft} aria-hidden="true" />
-    </div>
+    </LeftArrowWrap>
   );
 };
+const RightArrowWrap = styled.div`
+  padding: 1rem;
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
+`;
 const RightArrow = ({ handleBtnClick }) => {
   return (
-    <div
-      className="backArrow"
-      onClick={handleBtnClick}
-      style={{
-        padding: "1rem"
-      }}
-    >
+    <RightArrowWrap onClick={handleBtnClick}>
       <FontAwesomeIcon icon={faChevronRight} aria-hidden="true" />
-    </div>
+    </RightArrowWrap>
   );
+};
+const MobileArrowWrap = styled.div`
+  width: 3rem;
+  height: 3rem;
+  position: relative;
+  top: -16rem;
+  right: -20rem;
+  background: url(${mobileBtn});
+`;
+const MobileBtn = ({ handleBtnClick }) => {
+  return <MobileArrowWrap onClick={handleBtnClick}></MobileArrowWrap>;
 };
 
 const Container = styled.div`
   max-width: 108.6rem;
   overflow: hidden;
+  @media screen and (max-width: 500px) {
+    max-width: 45.1rem;
+  }
 `;
 const ImageSliderWrap = styled.div`
   display: flex;
@@ -50,10 +67,12 @@ const SliderItem = styled.div`
   display: flex;
   flex-direction: column;
   padding-right: 2.8rem;
+  @media screen and (max-width: 500px) {
+    padding-right: 1.8rem;
+  }
   .slider__img {
     width: 28.2rem;
     height: 17.6rem;
-    /* background: url(${(props) => props.bg}) no-repeat center center; */
     background: url(${(props) => props.bg}) no-repeat top center;
   }
   .slider__title {
@@ -75,7 +94,16 @@ const SliderItem = styled.div`
     color: #505050;
   }
 `;
+const ImageSliderDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+  }
+`;
 const ImageSlider = () => {
+  const isMobile = useMediaQuery({ maxWidth: 500 });
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideRef = useRef(null);
 
@@ -102,14 +130,7 @@ const ImageSlider = () => {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-        width: "115rem"
-      }}
-    >
+    <ImageSliderDiv>
       <LeftArrow handleBtnClick={handlePrev} />
       <Container>
         <ImageSliderWrap ref={slideRef}>
@@ -171,7 +192,8 @@ const ImageSlider = () => {
         </ImageSliderWrap>
       </Container>
       <RightArrow handleBtnClick={handleNext} />
-    </div>
+      {isMobile ? <MobileBtn handleBtnClick={handleNext} /> : ""}
+    </ImageSliderDiv>
   );
 };
 
