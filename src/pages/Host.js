@@ -40,7 +40,7 @@ const Header = styled.div`
     &__top {
       font-size: 1.4rem;
       line-height: 2.2rem;
-      width: 9rem;
+      width: 10rem;
     }
     &__middle {
       font-weight: 600;
