@@ -35,7 +35,7 @@ const ImageSliderWrap = styled.div`
 const ImageSlider = ({ type, list }) => {
   const [cards, setCards] = useState([]);
   const [frontIndex, setFrontIndex] = useState(0);
-  const [backIndex, setBackIndex] = useState(2);
+  const [backIndex, setBackIndex] = useState(list.length);
   const listLength = list.length;
 
   useEffect(() => {
@@ -49,7 +49,7 @@ const ImageSlider = ({ type, list }) => {
     if (index === 0) return;
     else index--;
     setFrontIndex(index);
-    setBackIndex(index + 2);
+    setBackIndex(index + listLength - 1);
   };
 
   const handleRightClick = () => {
@@ -57,7 +57,7 @@ const ImageSlider = ({ type, list }) => {
     if (index === listLength - 1) return;
     else index++;
     setBackIndex(index);
-    setFrontIndex(index - 2);
+    setFrontIndex(index - listLength + 1);
   };
 
   /*
