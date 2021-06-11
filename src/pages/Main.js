@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import NearTitle from "../components/main/NearTitle";
 import ResideTitle from "../components/main/ResideTitle";
 import ExpTitle from "../components/main/ExpTitle";
@@ -111,4 +109,3 @@ function Main() {
 }
 
 export default Main;
->>>>>>> develop
