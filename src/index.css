@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 
 html {
@@ -28,7 +26,6 @@ html {
     font-size: 10px;
   }
 }
->>>>>>> develop
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -36,6 +33,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: "Noto Sans kr", sans-serif !important;
+  /* font-family: 'Noto Sans JP', sans-serif; */
 }
 
 code {

@@ -1,7 +1,9 @@
+import Main from "./pages/Main";
+import Host from "./pages/Host";
+
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 function App() {
-<<<<<<< HEAD
-  return <div className="App"></div>;
-=======
   return (
     <Router>
       <Switch>
@@ -10,7 +12,6 @@ function App() {
       </Switch>
     </Router>
   );
->>>>>>> develop
 }
 
 export default App;

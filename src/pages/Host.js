@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import React from "react";
 import styled from "styled-components";
 import { useMediaQuery } from "react-responsive";
@@ -298,4 +296,3 @@ function Host() {
 }
 
 export default Host;
->>>>>>> develop

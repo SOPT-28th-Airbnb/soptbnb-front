@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import React from "react";
 import styled from "styled-components";
 import Dot from "../../assets/img/footer_dot_01.svg";
@@ -181,4 +179,3 @@ function Footer(props) {
 }
 
 export default Footer;
->>>>>>> develop
