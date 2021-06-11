@@ -35,10 +35,12 @@ const Header = styled.div`
     top: 9.7rem;
     left: 5.6rem;
     color: #ffffff;
+    width: 55.7rem;
 
     &__top {
       font-size: 1.4rem;
       line-height: 2.2rem;
+      width: 9rem;
     }
     &__middle {
       font-weight: 600;
@@ -70,7 +72,7 @@ const Header = styled.div`
     color: white;
   }
   @media screen and (max-width: 500px) {
-    width: 50rem;
+    width: 100vw;
     height: 64.8rem;
     .title {
       display: none;
@@ -79,6 +81,7 @@ const Header = styled.div`
       position: relative;
       top: 28.8rem;
       left: 2.5rem;
+      width: 45.6rem;
       &__middle {
         width: 45.6rem;
       }
@@ -165,7 +168,6 @@ const ImgSliderWrap = styled.div`
   margin-top: 7.8rem;
   margin-bottom: 8.4em;
   @media screen and (max-width: 500px) {
-    display: none;
   }
   .title {
     width: 108.6rem;
@@ -175,24 +177,8 @@ const ImgSliderWrap = styled.div`
     letter-spacing: -0.03em;
 
     color: #373737;
-  }
-  @media screen and (max-width: 500px) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 7.8rem;
-    margin-bottom: 8.4em;
     @media screen and (max-width: 500px) {
-      display: none;
-    }
-    .title {
-      width: 108.6rem;
-      font-weight: 600;
-      font-size: 2.9rem;
-      line-height: 3.9rem;
-      letter-spacing: -0.03em;
-
-      color: #373737;
+      width: 45.1rem;
     }
   }
 `;
@@ -215,9 +201,10 @@ const Banner = styled.div`
       letter-spacing: -0.02em;
     }
     &__bottom {
-      width: 41.6rem;
+      font-weight: 300;
       font-size: 1.4rem;
       line-height: 2.2rem;
+      letter-spacing: -0.04em;
     }
   }
   .startBtn {
@@ -243,16 +230,11 @@ const Banner = styled.div`
       position: relative;
       top: 11rem;
       left: 2.4rem;
-      &__middle {
-        width: 45.6rem;
-      }
-      &__bottom {
-        width: 41.6rem;
-      }
+      width: 27.9rem;
     }
     .startBtn {
-      position: absolute;
-      top: 48.8rem;
+      position: relative;
+      top: 12.6rem;
       left: 2.4rem;
     }
   }
