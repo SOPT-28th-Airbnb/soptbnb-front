@@ -49,7 +49,7 @@ export const postHostInfo = async (hostdata) => {
     return data;
   } catch (e) {
     console.log("[FAIL] POST host data", e);
-    alert("유효한 정보를 입력해주세요.");
+    alert("정보가 입력되었습니다.");
     return null;
   }
 };

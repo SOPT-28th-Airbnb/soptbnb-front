@@ -101,7 +101,7 @@ const CheckModal = ({ setModalState, dataState }) => {
           </div>
           <div className="content__div">
             <div className="content__text">전화번호: </div>
-            <div className="content__text">{dataState.num}</div>
+            <div className="content__text">{dataState.number}</div>
           </div>
         </div>
         <div className="button">
