@@ -214,7 +214,7 @@ const Banner = styled.div`
     justify-content: center;
     align-items: center;
     position: relative;
-    top: 0rem;
+    top: 17rem;
     left: 5.5rem;
     width: 9.4rem;
     height: 4.2rem;
